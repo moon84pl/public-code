@@ -1,0 +1,4 @@
+Ofcourse wordpress should be downloaded and extracted to the same directory as Dockerfile
+# wget https://pl.wordpress.org/latest-pl_PL.tar.gz && tar -xvzf latest-pl_PL.tar.gz
+
+Enjoy
