@@ -1,5 +1,10 @@
 #! /bin/bash
 
+#####VARIABLES#######
+ISINTALLED=`ls /usr/local/bin | grep vbox-cli-manager.sh | wc -l`
+USERINSTALLATIONANSWER="n"
+BLOCK_INSTALLER="0" #You can block installer by changing this value to 1 or any other digit
+#####/VARIABLES######
 echo -e "\e[1m\e[31m"
 cat << EOF
 
@@ -36,4 +41,32 @@ echo "Hit enter"
 read
 
 clear
+
+
+#########INSTALLER##################################################################
+if [[ $BLOCK_INSTALLER -eq "0" ]]
+    then
+    if [[ $ISINTALLED -ne "1" ]]
+        then
+           echo "Do you want to have it installed in /usr/local/bin ? Y or N"
+           read USERINSTALLATIONANSWER
+           if [[ $USERINSTALLATIONANSWER != "y" ]]
+               then
+                  echo "Ok"
+           else
+              echo "If you are not a root user sudo will be used sudo"
+              sudo cp -av ./vbox-cli-manager.sh /usr/local/bin
+           fi
+    fi
+fi
+#########/INSTALLER##################################################################
+
+echo -e "\e[1m\e[31m"
+cat << EOF
+
+
+
+EOF
+echo -e "\e[0m"
+
 
