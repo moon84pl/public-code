@@ -31,3 +31,9 @@ cat << EOF
 
 EOF
 echo -e "\e[0m"
+
+echo "Hit enter"
+read
+
+clear
+
