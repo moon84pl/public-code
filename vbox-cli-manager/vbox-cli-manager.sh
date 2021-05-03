@@ -63,8 +63,9 @@ fi
 
 echo -e "\e[1m\e[31m"
 cat << EOF
-
-
+1. Create single virtual machine from template (Cloning)
+2. List running virtual machines in this system
+3. 
 
 EOF
 echo -e "\e[0m"
