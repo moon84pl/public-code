@@ -80,25 +80,29 @@ EOF
 echo -e "\e[0m"
 read MAINMENU
 
-case $MAINMENU in
+   case $MAINMENU in
+   
+       1)
+         echo "Available templates"
+         vboxmanage list vms | grep -i template | cut -f1 -d " "
+         echo -n "Paste name of template: "
+         read VMTEMPLATE
+         echo $VMTEMPLATE
+       ;;
+         
+       2)
+         echo "Running virtual machines" 
+         vboxmanage list runningvms
+       ;;
 
-    1)
-      echo "Available templates"
-      vboxmanage list vms | grep -i template | cut -f1 -d " "
-    ;;
+       3)
+         echo "Registered virtual machines without templates"
+         vboxmanage list vms | grep -v template
+       ;;
+   
+       *) 
+         echo "Exit"
+       ;;
+   esac
 
-    2)
-      echo "Running virtual machines" 
-      vboxmanage list runningvms
-    ;;
-
-    3)
-      echo "Registered virtual machines without templates"
-      vboxmanage list vms | grep -v template
-    ;;
-    
-    *) 
-      echo "Exit"
-      ;;
-esac
 
