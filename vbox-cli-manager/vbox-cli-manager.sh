@@ -92,6 +92,9 @@ case $MAINMENU in
       vboxmanage list runningvms
     ;;
 
+    3)
+      echo "Registered virtual machines without templates"
+      vboxmanage list vms | grep -v template
     *) 
       echo "Exit"
       ;;
