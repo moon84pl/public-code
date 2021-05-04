@@ -1,9 +1,17 @@
 #! /bin/bash
 
 #####VARIABLES#######
+
+#########INSTALLER########
 ISINTALLED=`ls /usr/local/bin | grep vbox-cli-manager.sh | wc -l`
 USERINSTALLATIONANSWER="n"
 BLOCK_INSTALLER="0" #You can block installer by changing this value to 1 or any other digit
+#########/INSTALLER#######
+
+#########INTERFACE########
+
+#########/INTERFACE#######
+
 #####/VARIABLES######
 echo -e "\e[1m\e[31m"
 cat << EOF
@@ -65,9 +73,27 @@ echo -e "\e[1m\e[31m"
 cat << EOF
 1. Create single virtual machine from template (Cloning)
 2. List running virtual machines in this system
-3. 
-
+3. List registered virtual machines
+4. List internal networks
+5. List groups
 EOF
 echo -e "\e[0m"
+read MAINMENU
 
+case $MAINMENU in
+
+    1)
+      echo "Available templates"
+      vboxmanage list vms | grep -i template | cut -f1 -d
+    ;;
+
+    2)
+      echo "Running virtual machines" 
+      vboxmanage list runningvms
+    ;;
+
+    *) 
+      echo "Exit"
+      ;;
+esac
 
