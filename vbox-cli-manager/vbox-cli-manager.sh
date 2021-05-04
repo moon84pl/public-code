@@ -84,7 +84,7 @@ case $MAINMENU in
 
     1)
       echo "Available templates"
-      vboxmanage list vms | grep -i template | cut -f1 -d
+      vboxmanage list vms | grep -i template | cut -f1 -d " "
     ;;
 
     2)
