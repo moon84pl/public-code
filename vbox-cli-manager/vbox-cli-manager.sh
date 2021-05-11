@@ -71,7 +71,7 @@ fi
 
 echo -e "\e[1m\e[31m"
 cat << EOF
-1. Create single virtual machine from template (Cloning)
+1. Clone virtual machine from template (Cloning)
 2. List running virtual machines in this system
 3. List registered virtual machines
 4. List internal networks
@@ -83,12 +83,30 @@ read MAINMENU
    case $MAINMENU in
    
        1)
-         echo "Available templates"
+         echo "Clone virtual machine"
          vboxmanage list vms | grep -i template | cut -f1 -d " " | tr -d '"'
          echo -n "Paste name of template: "
          read VMTEMPLATE
          echo $VMTEMPLATE
-       ;;
+         echo -e "\e[1m\e[31m"
+         cat << EOF
+         1. Single Clone
+         2. Multiple Clones
+         EOF
+         echo -e "\e[0m"
+
+         read CREATORMENU1
+         case $CREATORMENU1 in
+              1)
+                 echo "1. Single virtual machine"
+                      echo "Set name for new virtual machine"
+                      read VMNAME
+                      echo $VMNAME
+              ;;
+
+              2)
+              
+              ;;
          
        2)
          echo "Running virtual machines" 
@@ -98,7 +116,7 @@ read MAINMENU
        3)
          echo "Registered virtual machines without templates"
          vboxmanage list vms | grep -v template
-       ;;
+       ;
    
        *) 
          echo "Exit"
