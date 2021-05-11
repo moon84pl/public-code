@@ -88,13 +88,8 @@ read MAINMENU
          echo -n "Paste name of template: "
          read VMTEMPLATE
          echo $VMTEMPLATE
-         echo -e "\e[1m\e[31m"
-         cat << EOF
-         1. Single Clone
-         2. Multiple Clones
-         EOF
-         echo -e "\e[0m"
-
+         echo "1. Single clone"
+         echo "2. Multiple clones"
          read CREATORMENU1
          case $CREATORMENU1 in
               1)
