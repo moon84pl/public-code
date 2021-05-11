@@ -111,7 +111,7 @@ read MAINMENU
        3)
          echo "Registered virtual machines without templates"
          vboxmanage list vms | grep -v template
-       ;
+       ;;
    
        *) 
          echo "Exit"
