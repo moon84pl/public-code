@@ -102,6 +102,7 @@ read MAINMENU
               2)
                  echo ""
               ;;
+          esac
          
        2)
          echo "Running virtual machines" 
