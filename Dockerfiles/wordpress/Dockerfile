@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:bullseye
 
 WORKDIR /var/www/html
 COPY wordpress/ ./
